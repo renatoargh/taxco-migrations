@@ -8,7 +8,7 @@ module.exports = {
 
     up: function(transaction, migrator, sequelize) {
         var queries = [
-            "ALTER TABLE `tasks` CHANGE `type` `type` ENUM('TASK','KNOWLEDGEBASE')  CHARACTER SET utf8  NOT NULL  DEFAULT 'task';"
+            "ALTER TABLE `tasks` ADD `type` ENUM('task','knowledgebase')  NOT NULL  DEFAULT 'task'  AFTER `description`;"
         ];
 
         return new Bluebird(function(resolve, reject) {
